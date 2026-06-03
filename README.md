@@ -46,16 +46,15 @@ A managed resource "random_password" "random_string_FAKE" has not been declared 
 классификаторе resource docker_image )
 В первом ресурсе используется параметр keep_locally = true, поэтому образ не удаляется.
 resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = true
+name         = "nginx:latest"
+keep_locally = true
 }
 resource "docker_container" "hello_world" {
-  image = docker_image.nginx.image_id
-  name  = "example_${random_password.random_string.result}"
-
-  ports {
-    internal = 80
-    external = 9090
-  }
+image = docker_image.nginx.image_id
+name  = "example_${random_password.random_string.result}"
+ports {
+internal = 80
+external = 9090
+}
 }
 keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
