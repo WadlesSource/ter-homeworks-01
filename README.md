@@ -10,15 +10,15 @@ personal.auto.tfvars
 Error: Missing name for resource
 on main.tf line 22, in resource "docker_image":
 All resource blocks must have 2 labels (type, name).
-
+Все блоки ресурсов должны иметь 2 метки (тип, название).
 Error: Invalid resource name
 on main.tf line 27, in resource "docker_container" "1nginx":
 A name must start with a letter or underscore and may contain only letters, digits, underscores, and dashes.
-
+Имя должно начинаться с буквы или символа подчеркивания и может содержать только буквы, цифры, знаки подчеркивания и тире.
 Error: Reference to undeclared resource
 on main.tf line 29, in resource "docker_container" "nginx":
 A managed resource "random_password" "random_string_FAKE" has not been declared in the root module.
-
+Управляемый ресурс "random_password" "random_string_FAKE" не был объявлен в корневом модуле.
 5. Выполните код. В качестве ответа приложите: исправленный фрагмент кода и вывод команды docker ps.
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
